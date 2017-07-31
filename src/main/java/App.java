@@ -70,7 +70,7 @@ public class App {
 
                         if (!entry.toFile().isDirectory()) {
 
-                        // Check Year
+                            // Check Year
                             DestinationPath = Paths.get(DestinationPath.toString(), Year);
                             if (!Files.exists(DestinationPath)) {
                                 Files.createDirectory(DestinationPath);
@@ -102,6 +102,7 @@ public class App {
                                 return true;
                             }
 
+                            // Save log changes every 50 records so it can be observed.
                             if (filecount % 50 == 0) fw.flush();
 
                             if (filecount > FileCountLimit) {
