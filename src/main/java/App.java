@@ -40,6 +40,8 @@ public class App {
 
     @Parameter(names = "--help", help = true, description="This options shows parameters help!")
     private boolean help;
+
+    private int totalNumberFileProcessed = 0;
     public boolean ExecuteBatch(String logName){
 
             int filecount = 0;
@@ -59,14 +61,14 @@ public class App {
                     
                         Date fileDate = new Date(entry.toFile().lastModified());
                         cal.setTime(fileDate);
-
+                        totalNumberFileProcessed++;
                         String Year = String.format("%04d", cal.get(Calendar.YEAR));
                         String Month = String.format("%02d", cal.get(Calendar.MONTH) + 1);
                         String Day = String.format("%02d", cal.get(Calendar.DAY_OF_MONTH));
-
+                        String TotalRecordCount = String.format("%010d",totalNumberFileProcessed);
                         Path DestinationPath = FileSystems.getDefault().getPath(destinationFolder);
                         System.out.println(
-                                entry.getFileName() + " | " + entry.toFile().isDirectory() + " | " + Year + Month + Day);
+                                entry.getFileName() + " | " + entry.toFile().isDirectory() + " | " + Year + Month + Day + "|" + TotalRecordCount);
 
                         if (!entry.toFile().isDirectory()) {
 
