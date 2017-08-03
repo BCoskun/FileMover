@@ -20,7 +20,7 @@ public class App {
     @Parameter(names={"--CleanUpFolder", "-cuf"},description="Cleanup folder that will pull the files from!",required=true)
     private static String cleanUpFolder = ".";
     
-    @Parameter(names={"--destinationFoler", "-df"}, description="Destination folder that the files will be moved to!")
+    @Parameter(names={"--destinationFoler", "-df"}, description="Destination folder that the files will be moved to!",required=true)
     private static String destinationFolder = ".";
 
     @Parameter(names={"--LogFileName", "-lfn"}, description="Log File Name.")
